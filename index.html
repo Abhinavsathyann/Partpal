@@ -1,301 +1,217 @@
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>PartyPal - Your Go-To Online Ticketing Platform</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #f7fafc;
-            margin: 0;
-            padding: 0;
-        }
-        .navbar {
-            background-color: #ffffff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            padding: 10px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .navbar a {
-            text-decoration: none;
-            color: #4a5568;
-            margin: 0 10px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        .navbar a:hover {
-            color: #3182ce;
-        }
-        .hero {
-            background-color: #3182ce;
-            color: #ffffff;
-            text-align: center;
-            padding: 60px 20px;
-        }
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        .hero p {
-            font-size: 1.125rem;
-            margin-bottom: 40px;
-        }
-        .hero a {
-            background-color: #ffffff;
-            color: #3182ce;
-            padding: 10px 20px;
-            border-radius: 9999px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .hero a:hover {
             background-color: #e2e8f0;
-            color: #2b6cb0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
         }
-        .image-slider {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            margin-bottom: 40px;
-            overflow: hidden;
-        }
-        .image-slider .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            transition: opacity 1s ease;
-        }
-        .image-slider .slide.active {
-            opacity: 1;
-        }
-        .image-slider .slide.inactive {
-            opacity: 0;
-        }
-        .features, .events {
-            padding: 60px 20px;
-            text-align: center;
-        }
-        .features h2, .events h2 {
-            font-size: 2rem;
-            margin-bottom: 40px;
-        }
-        .features .feature, .events .event {
+        .container {
             background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 10px;
+            padding: 32px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 384px;
+            animation: fadeIn 0.5s ease-in-out;
         }
-        .features .feature:hover, .events .event:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        .hidden {
+            display: none;
         }
-        .features .feature {
-            width: 250px;
-            display: inline-block;
-            vertical-align: top;
+        .fade-in-out {
+            animation: fadeInOut 0.5s ease-in-out;
         }
-        .features .feature i, .events .event img {
-            font-size: 2rem;
-            color: #3182ce;
-            margin-bottom: 20px;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
-        .features .feature h3, .events .event h3 {
-            font-size: 1.25rem;
-            margin-bottom: 10px;
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
         }
-        .features .feature p, .events .event p {
-            color: #718096;
+        h2 {
+            text-align: center;
+            color: #4a5568;
+            font-size: 24px;
+            margin-bottom: 24px;
         }
-        .events .event img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .events .event {
-            width: 350px;
-            height: 350px;
-            display: inline-block;
-            vertical-align: top;
+        .form-group {
+            margin-bottom: 16px;
             position: relative;
-            padding-bottom: 60px; /* Extra space for the button */
         }
-        .events .event a {
-            display: inline-block;
-            margin-top: 10px;
-            text-decoration: none;
-            color: #3182ce;
-            font-weight: 600;
-            transition: color 0.3s ease;
+        .form-group input {
+            width: 100%;
+            padding: 8px 16px 8px 40px;
+            border-radius: 8px;
+            border: 1px solid #cbd5e0;
+            background-color: #edf2f7;
+            color: #4a5568;
+            outline: none;
         }
-        .events .event a.buy-tickets {
-            background-color: #3182ce;
-            color: #ffffff;
-            padding: 10px 20px;
+        .form-group svg {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a0aec0;
+        }
+        .form-group label {
+            color: #4a5568;
+        }
+        .form-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 8px;
+        }
+        .btn {
+            display: block;
+            width: 75%;
+            margin: 0 auto;
+            padding: 8px;
             border-radius: 9999px;
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .events .event a.buy-tickets:hover {
-            background-color: #2b6cb0;
-            color: #e2e8f0;
-        }
-        .footer {
-            background-color: #ffffff;
+            background-color: #4299e1;
+            color: #ffffff;
             text-align: center;
-            padding: 20px;
-            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
         }
-        .footer p {
-            color: #718096;
+        .btn:hover {
+            background-color: #3182ce;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .text-center a {
+            color: #4299e1;
+            text-decoration: none;
+        }
+        .text-center a:hover {
+            text-decoration: underline;
         }
     </style>
+    <script>
+        function toggleForm() {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            loginForm.classList.toggle('hidden');
+            registerForm.classList.toggle('hidden');
+            loginForm.classList.toggle('fade-in-out');
+            registerForm.classList.toggle('fade-in-out');
+        }
+
+        function registerUser  () {
+            const username = document.getElementById('register-username').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('register-confirm-password').value;
+
+            if (password === confirmPassword) {
+                const user = {
+                    username,
+                    email,
+                    password
+                };
+
+                localStorage.setItem('user', JSON.stringify(user));
+                alert('Registration successful!');
+                toggleForm();
+            } else {
+                alert('Passwords do not match!');
+            }
+        }
+
+        function loginUser() {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            const storedUser   = localStorage.getItem('user');
+            if (storedUser  ) {
+                const user = JSON.parse(storedUser  );
+                if (user.username === username && user.password === password) {
+                    window.location.href = 'MainPage.html';
+                } else {
+                    alert('Invalid username or password!');
+                }
+            } else {
+                alert('No user found!');
+            }
+        }
+    </script>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <a href="index.html" class="logo">PartyPal</a>
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="events.html">Events</a>
-            <a href="login.html">Login</a>
+    <div class="container">
+        <div id="login-form">
+            <h2>LOGIN</h2>
+            <form>
+                <div class="form-group">
+                    <svg class="svg-inline--fa fa-user fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg>
+                    <input id="login-username" type="text" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <svg class="svg-inline--fa fa-lock fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="lock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M400 224h-24v-72C376 68.3 307.7 0 224 0S72 68.3 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zM224 32c66.2 0 120 53.8 120 120v72H104v-72c0-66.2 53.8-120 120-120zm176 432c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V272c0-8.8 7.2-16 16-16h320c8.8 0 16 7.2 16 16v192z"></path></svg>
+                    <input id="login-password" type="password" placeholder="Password">
+                </div>
+                <div class="form-group text-center">
+                    <button type="button" class="btn" onclick="loginUser  ()">LOGIN</button>
+                </div>
+                <div class="text-center">
+                    <a href="#">Forgot your password?</a>
+                </div>
+                <div class="text-center">
+                    <a href="#" onclick="toggleForm()">Register</a>
+                </div>
+            </form>
         </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Welcome to PartyPal</h1>
-        <p>Your Go-To Online Ticketing Platform for Unforgettable Party Experiences</p>
-        <a href="events.html">Browse Events</a>
-    </section>
-    <!-- Features Section -->
-    <section class="features">
-        <h2>Features</h2>
-        <div class="feature">
-            <i class="fas fa-search"></i>
-            <h3>Browse Events</h3>
-            <p>Discover upcoming party events with ease.</p>
+        <div id="register-form" class="hidden">
+            <h2>REGISTER</h2>
+            <form>
+                <div class="form-group">
+                    <svg class="svg-inline--fa fa-user fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="user" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0 96 57.3 96 128s57.3 128 128 128zm89.6 32h-16.7c-22.2 10.2-46.9 16-72.9 16s-50.6-5.8-72.9-16h-16.7C60.2 288 0 348.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-74.2-60.2-134.4-134.4-134.4z"></path></svg>
+                    <input id="register-username" type="text" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <svg class="svg-inline--fa fa-envelope fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="envelope" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M502.3 190.8L327.4 338.3c-22.1 18.9-53.7 18.9-75.8 0L9.7 190.8C3.9 186.2 0 179.2 0 171.6V48c0-26.5 21.5-48 48-48h416c26.5 0 48 21.5 48 48v123.6c0 7.6-3.9 14.6-9.7 19.2zM464 64H48c-8.8 0-16 7.2-16 16v91.6l192 164.2c10.1 8.6 24.5 8.6 34.6 0l192-164.2V80c0-8.8-7.2-16-16-16zm48 272c0-7.6-3.9-14.6-9.7-19.2L327.4 173.7c-22.1-18.9-53.7-18.9-75.8 0L9.7 316.8C3.9 321.4 0 328.4 0 336v123.6c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V336z"></path></svg>
+                    <input id="register-email" type="email" placeholder="Email">
+                </div>
+                <div class="form-group">
+                    <svg class="svg-inline--fa fa-lock fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="lock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M400 224h-24v-72C376 68.3 307.7 0 224 0S72 68.3 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zM224 32c66.2 0 120 53.8 120 120v72H104v-72c0-66.2 53.8-120 120-120zm176 432c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V272c0-8.8 7.2-16 16-16h320c8.8 0 16 7.2 16 16v192z"></path></svg>
+                    <input id="register-password" type="password" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <svg class="svg-inline--fa fa-lock fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="lock" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M400 224h-24v-72C376 68.3 307.7 0 224 0S72 68.3 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zM224 32c66.2 0 120 53.8 120 120v72H104v-72c0-66.2 53.8-120 120-120zm176 432c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V272c0-8.8 7.2-16 16-16h320c8.8 0 16 7.2 16 16v192z"></path></svg>
+                    <input id="register-confirm-password" type="password" placeholder="Confirm Password">
+                </div>
+                <div class="form-group text-center">
+                    <button type="button" class="btn" onclick="registerUser  ()">REGISTER</button>
+                </div>
+                <div class="text-center">
+                    <a href="#" onclick="toggleForm()">Back to Login</a>
+                </div>
+            </form>
         </div>
-        <div class="feature">
-            <i class="fas fa-filter"></i>
-            <h3>Search & Filter</h3>
-            <p>Find events by date, location, or category.</p>
-        </div>
-        <div class="feature">
-            <i class="fas fa-info-circle"></i>
-            <h3>Event Details</h3>
-            <p>View detailed descriptions, images, and pricing.</p>
-        </div>
-        <div class="feature">
-            <i class="fas fa-ticket-alt"></i>
-            <h3>Book Tickets</h3>
-            <p>Seamless checkout process for ticket booking.</p>
-        </div>
-        <div class="feature">
-            <i class="fas fa-lock"></i>
-            <h3>Secure Payments</h3>
-            <p>Secure payment gateway integration.</p>
-        </div>
-        <div class="feature">
-            <i class="fas fa-check-circle"></i>
-            <h3>Booking Confirmation</h3>
-            <p>Receive instant booking confirmation.</p>
-        </div>
-    </section>
-    <!-- Events Section -->
-    <section class="events">
-        <h2>Upcoming Events</h2>
-        <div class="event">
-            <img src="https://storage.googleapis.com/a1aa/image/iLCSUQz03dFx9oXcOxDoGPfptsIT_7rUm-RXP4qgNRw.jpg" alt="Concert event with a large crowd and stage lighting">
-            <h3>Epic Concert Night</h3>
-            <p>Join us for an unforgettable night of music and fun.</p>
-            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
-        </div>
-        <div class="event">
-            <img src="https://storage.googleapis.com/a1aa/image/BWnfznLYuZha-_JynPt32rL4rrnO4Y0nVm9I5fks0tc.jpg" alt="Festival event with colorful decorations and happy people">
-            <h3>Summer Festival</h3>
-            <p>Experience the best summer vibes at our festival.</p>
-            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
-        </div>
-        <div class="event">
-            <img src="https://storage.googleapis.com/a1aa/image/V3OcE2sVJRFpifRYaLUCPndVqq8khN7ko380qgH6AEQ.jpg" alt="Nightlife event with people dancing in a club">
-            <h3>Nightlife Extravaganza</h3>
-            <p>Dance the night away at the hottest club in town.</p>
-            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
-        </div>
-        <div class="event">
-            <img src="https://storage.googleapis.com/a1aa/image/V3OcE2sVJRFpifRYaLUCPndVqq8khN7ko380qgH6AEQ.jpg" alt="Nightlife event with people dancing in a club">
-            <h3>Nightlife Extravaganza</h3>
-            <p>Dance the night away at the hottest club in town.</p>
-            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
-        </div>
-        <div class="event">
-            <img src="https://storage.googleapis.com/a1aa/image/V3OcE2sVJRFpifRYaLUCPndVqq8khN7ko380qgH6AEQ.jpg" alt="Nightlife event with people dancing in a club">
-            <h3>Nightlife Extravaganza</h3>
-            <p>Dance the night away at the hottest club in town.</p>
-            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
-        </div>
-        <div class="event">
-            <img src="https://storage.googleapis.com/a1aa/image/V3OcE2sVJRFpifRYaLUCPndVqq8khN7ko380qgH6AEQ.jpg" alt="Nightlife event with people dancing in a club">
-            <h3>Nightlife Extravaganza</h3>
-            <p>Dance the night away at the hottest club in town.</p>
-            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
-        </div>
-        <div class="event">
-            <img src="https://storage.googleapis.com/a1aa/image/V3OcE2sVJRFpifRYaLUCPndVqq8khN7ko380qgH6AEQ.jpg" alt="Nightlife event with people dancing in a club">
-            <h3>Nightlife Extravaganza</h3>
-            <p>Dance the night away at the hottest club in town.</p>
-            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
-        </div>
-        <div class="event">
-            <img src="https://storage.googleapis.com/a1aa/image/V3OcE2sVJRFpifRYaLUCPndVqq8khN7ko380qgH6AEQ.jpg" alt="Nightlife event with people dancing in a club">
-            <h3>Nightlife Extravaganza</h3>
-            <p>Dance the night away at the hottest club in town.</p>
-            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
-        </div>
-        <div class="event">
-            <img src="https://storage.googleapis.com/a1aa/image/V3OcE2sVJRFpifRYaLUCPndVqq8khN7ko380qgH6AEQ.jpg" alt="Nightlife event with people dancing in a club">
-            <h3>Nightlife Extravaganza</h3>
-            <p>Dance the night away at the hottest club in town.</p>
-            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
-        </div>
-        <div class="event">
-            <img src="https://storage.googleapis.com/a1aa/image/V3OcE2sVJRFpifRYaLUCPndVqq8khN7ko380qgH6AEQ.jpg" alt="Nightlife event with people dancing in a club">
-            <h3>Nightlife Extravaganza</h3>
-            <p>Dance the night away at the hottest club in town.</p>
-            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
-        </div>
-    </section>
-    <!-- Footer -->
-    <footer class="footer">
-        <p>Logged in as: <span id="username"></span></p>
-        <script>
-            const storedUser = localStorage.getItem('user');
-            if (storedUser) {
-                const user = JSON.parse(storedUser);
-                document.getElementById('username').innerText = user.username;
-            } else {
-                window.location.href = 'login.html';
-            }
-        </script>
-    </footer>
-    <script>
-
-    </script>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 </body>
 </html>
