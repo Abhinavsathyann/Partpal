@@ -1,0 +1,301 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>PartyPal - Your Go-To Online Ticketing Platform</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f7fafc;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar a {
+            text-decoration: none;
+            color: #4a5568;
+            margin: 0 10px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .navbar a:hover {
+            color: #3182ce;
+        }
+        .hero {
+            background-color: #3182ce;
+            color: #ffffff;
+            text-align: center;
+            padding: 60px 20px;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.125rem;
+            margin-bottom: 40px;
+        }
+        .hero a {
+            background-color: #ffffff;
+            color: #3182ce;
+            padding: 10px 20px;
+            border-radius: 9999px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .hero a:hover {
+            background-color: #e2e8f0;
+            color: #2b6cb0;
+        }
+        .image-slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+        .image-slider .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 1s ease;
+        }
+        .image-slider .slide.active {
+            opacity: 1;
+        }
+        .image-slider .slide.inactive {
+            opacity: 0;
+        }
+        .features, .events {
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .features h2, .events h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+        .features .feature, .events .event {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .features .feature:hover, .events .event:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .features .feature {
+            width: 250px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .features .feature i, .events .event img {
+            font-size: 2rem;
+            color: #3182ce;
+            margin-bottom: 20px;
+        }
+        .features .feature h3, .events .event h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+        .features .feature p, .events .event p {
+            color: #718096;
+        }
+        .events .event img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .events .event {
+            width: 350px;
+            height: 350px;
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+            padding-bottom: 60px; /* Extra space for the button */
+        }
+        .events .event a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #3182ce;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .events .event a.buy-tickets {
+            background-color: #3182ce;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 9999px;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .events .event a.buy-tickets:hover {
+            background-color: #2b6cb0;
+            color: #e2e8f0;
+        }
+        .footer {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .footer p {
+            color: #718096;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="index.html" class="logo">PartyPal</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="login.html">Login</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to PartyPal</h1>
+        <p>Your Go-To Online Ticketing Platform for Unforgettable Party Experiences</p>
+        <a href="events.html">Browse Events</a>
+    </section>
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Features</h2>
+        <div class="feature">
+            <i class="fas fa-search"></i>
+            <h3>Browse Events</h3>
+            <p>Discover upcoming party events with ease.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-filter"></i>
+            <h3>Search & Filter</h3>
+            <p>Find events by date, location, or category.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-info-circle"></i>
+            <h3>Event Details</h3>
+            <p>View detailed descriptions, images, and pricing.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-ticket-alt"></i>
+            <h3>Book Tickets</h3>
+            <p>Seamless checkout process for ticket booking.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-lock"></i>
+            <h3>Secure Payments</h3>
+            <p>Secure payment gateway integration.</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-check-circle"></i>
+            <h3>Booking Confirmation</h3>
+            <p>Receive instant booking confirmation.</p>
+        </div>
+    </section>
+    <!-- Events Section -->
+    <section class="events">
+        <h2>Upcoming Events</h2>
+        <div class="event">
+            <img src="https://storage.googleapis.com/a1aa/image/iLCSUQz03dFx9oXcOxDoGPfptsIT_7rUm-RXP4qgNRw.jpg" alt="Concert event with a large crowd and stage lighting">
+            <h3>Epic Concert Night</h3>
+            <p>Join us for an unforgettable night of music and fun.</p>
+            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
+        </div>
+        <div class="event">
+            <img src="https://storage.googleapis.com/a1aa/image/BWnfznLYuZha-_JynPt32rL4rrnO4Y0nVm9I5fks0tc.jpg" alt="Festival event with colorful decorations and happy people">
+            <h3>Summer Festival</h3>
+            <p>Experience the best summer vibes at our festival.</p>
+            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
+        </div>
+        <div class="event">
+            <img src="https://storage.googleapis.com/a1aa/image/V3OcE2sVJRFpifRYaLUCPndVqq8khN7ko380qgH6AEQ.jpg" alt="Nightlife event with people dancing in a club">
+            <h3>Nightlife Extravaganza</h3>
+            <p>Dance the night away at the hottest club in town.</p>
+            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
+        </div>
+        <div class="event">
+            <img src="https://storage.googleapis.com/a1aa/image/V3OcE2sVJRFpifRYaLUCPndVqq8khN7ko380qgH6AEQ.jpg" alt="Nightlife event with people dancing in a club">
+            <h3>Nightlife Extravaganza</h3>
+            <p>Dance the night away at the hottest club in town.</p>
+            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
+        </div>
+        <div class="event">
+            <img src="https://storage.googleapis.com/a1aa/image/V3OcE2sVJRFpifRYaLUCPndVqq8khN7ko380qgH6AEQ.jpg" alt="Nightlife event with people dancing in a club">
+            <h3>Nightlife Extravaganza</h3>
+            <p>Dance the night away at the hottest club in town.</p>
+            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
+        </div>
+        <div class="event">
+            <img src="https://storage.googleapis.com/a1aa/image/V3OcE2sVJRFpifRYaLUCPndVqq8khN7ko380qgH6AEQ.jpg" alt="Nightlife event with people dancing in a club">
+            <h3>Nightlife Extravaganza</h3>
+            <p>Dance the night away at the hottest club in town.</p>
+            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
+        </div>
+        <div class="event">
+            <img src="https://storage.googleapis.com/a1aa/image/V3OcE2sVJRFpifRYaLUCPndVqq8khN7ko380qgH6AEQ.jpg" alt="Nightlife event with people dancing in a club">
+            <h3>Nightlife Extravaganza</h3>
+            <p>Dance the night away at the hottest club in town.</p>
+            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
+        </div>
+        <div class="event">
+            <img src="https://storage.googleapis.com/a1aa/image/V3OcE2sVJRFpifRYaLUCPndVqq8khN7ko380qgH6AEQ.jpg" alt="Nightlife event with people dancing in a club">
+            <h3>Nightlife Extravaganza</h3>
+            <p>Dance the night away at the hottest club in town.</p>
+            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
+        </div>
+        <div class="event">
+            <img src="https://storage.googleapis.com/a1aa/image/V3OcE2sVJRFpifRYaLUCPndVqq8khN7ko380qgH6AEQ.jpg" alt="Nightlife event with people dancing in a club">
+            <h3>Nightlife Extravaganza</h3>
+            <p>Dance the night away at the hottest club in town.</p>
+            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
+        </div>
+        <div class="event">
+            <img src="https://storage.googleapis.com/a1aa/image/V3OcE2sVJRFpifRYaLUCPndVqq8khN7ko380qgH6AEQ.jpg" alt="Nightlife event with people dancing in a club">
+            <h3>Nightlife Extravaganza</h3>
+            <p>Dance the night away at the hottest club in town.</p>
+            <a href="checkout.html" class="buy-tickets">Buy Tickets</a>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Logged in as: <span id="username"></span></p>
+        <script>
+            const storedUser = localStorage.getItem('user');
+            if (storedUser) {
+                const user = JSON.parse(storedUser);
+                document.getElementById('username').innerText = user.username;
+            } else {
+                window.location.href = 'login.html';
+            }
+        </script>
+    </footer>
+    <script>
+
+    </script>
+</body>
+</html>
