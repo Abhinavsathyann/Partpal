@@ -110,6 +110,41 @@
         .text-center a:hover {
             text-decoration: underline;
         }
+
+        /* Style the popup */
+        .popup {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
     </style>
     <script>
         function toggleForm() {
@@ -158,6 +193,27 @@
                 alert('No user found!');
             }
         }
+
+        // Get the popup and close button
+        var popup = document.getElementById("forget-password-popup");
+        var close = document.getElementsByClassName("close")[0];
+
+        // Show the popup when the forget password link is clicked
+        document.querySelector(".text-center a").addEventListener("click", function() {
+            popup.style.display = "block";
+        });
+
+        // Close the popup when the close button is clicked
+        close.addEventListener("click", function() {
+            popup.style.display = "none";
+        });
+
+        // Close the popup when the user clicks outside of it
+        window.addEventListener("click", function(event) {
+            if (event.target == popup) {
+                popup.style.display = "none";
+            }
+        });
     </script>
 </head>
 <body>
@@ -177,7 +233,7 @@
                     <button type="button" class="btn" onclick="loginUser  ()">LOGIN</button>
                 </div>
                 <div class="text-center">
-                    <a href="#">Forgot your password?</a>
+                    <a href="#" onclick="document.getElementById('forget-password-popup').style.display = 'block';">Forgot your password?</a>
                 </div>
                 <div class="text-center">
                     <a href="#" onclick="toggleForm()">Register</a>
@@ -212,6 +268,19 @@
             </form>
         </div>
     </div>
+
+    <!-- Forget Password Pop-up -->
+    <div id="forget-password-popup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>Forget Password</h2>
+            <p>Currently Unavailable</p>
+            <div class="text-center">
+                <a href="#" onclick="document.getElementById('forget-password-popup').style.display = 'none';">Back to Login</a>
+            </div>
+        </div>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
 </body>
 </html>
